@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check"
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check"
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider("6Le58bstAAAAAJI2l2ujjWkEnTSsGENP0Gf7PYvI"),
+  provider: new ReCaptchaEnterpriseProvider("6Le58bstAAAAAJI2l2ujjWkEnTSsGENP0Gf7PYvI"),
   isTokenAutoRefreshEnabled: true
 });
 
