@@ -1,6 +1,5 @@
 import { useRef, useState } from "react"
 import { generateCardsFromPDF } from "../../ai/generateCards"
-import type { GeneratedCard } from "../../data_types/generatedCard"
 import { useCardEditor } from "./hooks/useCardEditor"
 import CardEditor from "./components/ui/CardEditor"
 import { Link, useNavigate, useParams } from "react-router"
@@ -64,6 +63,8 @@ export function DeckAIGeneration() {
             )
 
             const firstInvalidCard = invalidCards[0]
+            setHighlightedCard(firstInvalidCard.id)
+            
             const element = cardRefs.current.get(
                 firstInvalidCard.id
             )

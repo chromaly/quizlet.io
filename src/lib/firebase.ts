@@ -14,19 +14,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
-/*
-if (import.meta.env.DEV) {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true
-}
-
 initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(
     import.meta.env.VITE_FIREBASE_APPCHECK_KEY
   ),
   isTokenAutoRefreshEnabled: true
-})
-  */
+});
+
 export { app }; 
 
 export const auth = getAuth(app);

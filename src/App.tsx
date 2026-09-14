@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router"
+import { Route, Routes } from "react-router"
 import { DecksPage } from "../src/features/decks/DecksPage.tsx"
 import { DeckInfoPage } from "../src/features/decks/DeckInfoPage.tsx"
 import { ProtectedRoute } from "../src/features/auth/ProtectedRoute"
@@ -36,7 +36,7 @@ export default function App() {
       
   return (
     <div className="min-h-screen">
-      <Sidebar onCreateDeck={() => setIsCreateDeckOpen(true)} isCreateDeckOpen={isCreateDeckOpen}/>
+      <Sidebar onCreateDeck={() => setIsCreateDeckOpen(true)}/>
 
       <CreateDeckModal
         isOpen={isCreateDeckOpen}

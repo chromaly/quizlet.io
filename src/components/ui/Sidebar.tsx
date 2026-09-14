@@ -2,12 +2,10 @@ import { Link, useLocation } from "react-router"
 
 type SidebarProps = {
     onCreateDeck: () => void
-    isCreateDeckOpen: boolean
 }
 
 export function Sidebar({
     onCreateDeck,
-    isCreateDeckOpen,
 }: SidebarProps) {
     const location = useLocation()
 

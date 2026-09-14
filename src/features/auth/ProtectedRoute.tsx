@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from "react-router";
 import { useAuth } from "./AuthProvider";
-import { SignInModal } from "./AuthMenu"
 export function ProtectedRoute() {
   const { user, isLoading } = useAuth();
 

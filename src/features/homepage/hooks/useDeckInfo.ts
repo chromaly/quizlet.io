@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import type { Deck } from "../../../data_types/deck"
 import { collection, getCountFromServer, onSnapshot, orderBy, query, limit, where, Query, doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
-import type { Card } from "../../../data_types/card";
 
 type DeckMode = "recent" | "favorites" | "continue" | "all"
 
@@ -10,12 +9,9 @@ export function useDecks(userId: string | null, mode: DeckMode
 ) {
 
     const [savedDecks, setSavedDecks] = useState<Deck[]>([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [loadError, setLoadError] = useState<string | null>(null)
 
     useEffect(() => {
         if (!userId) {
-            setIsLoading(false)
             setSavedDecks([])
             return
         }
@@ -59,11 +55,9 @@ export function useDecks(userId: string | null, mode: DeckMode
                     lastStudiedAt: document.data().lastStudiedAt
                 }))
                 setSavedDecks(nextDecks)
-                setIsLoading(false)
+  
             }, 
         () => {
-            setLoadError("Unable to load your decks.")
-            setIsLoading(false)
         })
         return unsubscribe
     }, [userId, mode])
