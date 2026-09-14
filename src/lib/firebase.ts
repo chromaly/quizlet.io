@@ -10,14 +10,13 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  appCheckKey: import.meta.env.VITE_FIREBASE_APPCHECK_KEY
 };
 
 const app = initializeApp(firebaseConfig);
 
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(
-    import.meta.env.VITE_FIREBASE_APPCHECK_KEY
-  ),
+  provider: new ReCaptchaV3Provider("6Le58bstAAAAAJI2l2ujjWkEnTSsGENP0Gf7PYvI"),
   isTokenAutoRefreshEnabled: true
 });
 
